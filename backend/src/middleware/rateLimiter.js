@@ -20,7 +20,7 @@ const apiLimiter = rateLimit({
  */
 const analyzeLimiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 10 minutes
-  max: 7, // Limit each IP to 7 requests per window
+  max: 10, // Limit each IP to 7 requests per window
   message: {
     error: 'Scan limit reached. Please wait 10 minutes before analyzing more resumes.'
   },
