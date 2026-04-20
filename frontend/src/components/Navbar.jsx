@@ -80,13 +80,13 @@ export default function Navbar({ onReset, hasResults }) {
   return (
     <nav style={floatingContainerStyle}>
       <div style={navInnerStyle}>
-        <button
-          type="button"
-          onClick={() => {
-            onReset();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = '/';
           }}
-          style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 12 }}
+          style={{ textDecoration: 'none', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 12 }}
         >
           <div style={brandIconStyle}>⚡</div>
           <span className="brand-text-mobile" style={{
@@ -96,7 +96,7 @@ export default function Navbar({ onReset, hasResults }) {
           }}>
             Resume<span style={{ color: '#c8f04a', fontStyle: 'italic' }}>IQ</span>
           </span>
-        </button>
+        </a>
 
         <div className="nav-flex-container" style={{ display: 'flex', alignItems: 'center', gap: scrolled ? 16 : 32, transition: 'gap 0.5s ease' }}>
           <a

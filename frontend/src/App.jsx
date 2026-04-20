@@ -8,6 +8,7 @@ import Results from './components/Results';
 import HowItWorks from './components/HowItWorks';
 import Footer from './components/Footer';
 import NotFound from './components/NotFound';
+import SplashScreen from './components/SplashScreen';
 
 export default function App() {
   const [results, setResults] = useState(null);
@@ -35,6 +36,7 @@ export default function App() {
 
   return (
     <>
+      <SplashScreen />
       <Toaster
         position="top-right"
         toastOptions={{
