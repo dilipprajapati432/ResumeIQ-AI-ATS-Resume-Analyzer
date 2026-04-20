@@ -1,9 +1,14 @@
+# ⚡ ResumeIQ — AI ATS Resume Analyzer
+
 **ResumeIQ** is a full-stack web application designed to help job seekers optimize their resumes for Applicant Tracking Systems (ATS). Using **Google Gemini 2.0** and **Groq (Llama 3)**, it provides detailed compatibility scores, keyword gap analysis, and actionable suggestions to improve interview chances.
+
+---
 
 ## 🚀 Live Demo
 [![Live Demo](https://img.shields.io/badge/Live-Demo-green)](https://resumeiqscan.vercel.app)
 
 ---
+
 ## 📸 Screenshots
 
 <img width="1918" height="1027" alt="image" src="https://github.com/user-attachments/assets/9f6e3f73-03c3-4296-88bc-704c584bde33" />
@@ -15,6 +20,7 @@
 <img width="1902" height="1015" alt="image" src="https://github.com/user-attachments/assets/533c546c-b15a-43a7-b5fe-7bc82be2d57f" />
 
 ---
+
 ## ✨ Features
 - **🧠 6-Dimensional AI Scoring** — Analysis of Keywords, Formatting, Experience, Skills, Education, and Impact.
 - **⚡ Hybrid AI Engine** — Ultra-fast insights powered by Gemini 2.0 and Groq/Llama-3.3.
