@@ -16,11 +16,11 @@ const apiLimiter = rateLimit({
 
 /**
  * Strict rate limiter for the analysis endpoint.
- * Limits each IP to 7 resume scans per 10 minutes.
+ * Limits each IP to 10 resume scans per 10 minutes.
  */
 const analyzeLimiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 10 minutes
-  max: 10, // Limit each IP to 7 requests per window
+  max: 10, // Limit each IP to 10 requests per 10 minutes (strict for analysis)
   message: {
     error: 'Scan limit reached. Please wait 10 minutes before analyzing more resumes.'
   },

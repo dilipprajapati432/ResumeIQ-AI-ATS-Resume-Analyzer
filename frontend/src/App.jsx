@@ -9,6 +9,7 @@ import HowItWorks from './components/HowItWorks';
 import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 import SplashScreen from './components/SplashScreen';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   const [results, setResults] = useState(null);
@@ -74,6 +75,7 @@ export default function App() {
       </Routes>
 
       <Footer />
+      <Analytics />
     </>
   );
 }
