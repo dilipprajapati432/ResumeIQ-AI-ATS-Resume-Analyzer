@@ -96,6 +96,7 @@ async function analyzeWithGemini(resume, jd, modelName) {
   3. DOMAIN PENALTY: Penalize if domain mismatch.
   4. RECRUITER MODE: Word choice influences impact score.
   5. EDUCATION RULE: B.Tech/B.E. in CSE/IT/ECE is ALWAYS relevant (min 60) for ANY tech role including Cybersecurity, Data Science, AI, Cloud, etc.
+  6. SHORT JD RULE: If the JD is very short (e.g. just a job title), evaluate 'skills_alignment' against standard industry requirements for that role. Do NOT give a 0 just because the JD lacked details.
   RESUME: ${resume}
   JD: ${jd}
   ${SCHEMA_PROMPT}`;
@@ -112,6 +113,7 @@ async function analyzeWithGroq(resume, jd) {
   1. STUDENT MODE: Grade on project depth.
   2. DECOUPLE ATS FORMAT: 'format_ats' is independent.
   3. EDUCATION RULE: B.Tech/B.E. in CSE/IT/ECE is ALWAYS relevant (min 60) for ANY tech role.
+  4. SHORT JD RULE: If the JD is very short (e.g. just a job title), evaluate 'skills_alignment' against standard industry requirements for that role. Do NOT give a 0 just because the JD lacked details.
   RESUME: ${resume}
   JD: ${jd}
   ${SCHEMA_PROMPT}`;
