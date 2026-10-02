@@ -5,8 +5,8 @@ const path = require('path');
 const fs = require('fs');
 const analyzeRoutes = require('./src/routes/analyzeRoutes');
 const { apiLimiter } = require('./src/middleware/rateLimiter');
-
-
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -20,8 +20,8 @@ app.use(cors({ origin: allowedOrigin, methods: ['GET', 'POST'], credentials: tru
 app.use(express.json({ limit: '10mb' }));
 
 // API Routes
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api', apiLimiter, analyzeRoutes);
-
 
 // Health Check
 app.get('/api/health', (req, res) => res.json({ ok: true }));

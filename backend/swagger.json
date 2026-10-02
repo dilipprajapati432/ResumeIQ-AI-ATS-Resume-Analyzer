@@ -1,0 +1,117 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ATS Resume Analyzer API",
+    "version": "1.0.0",
+    "description": "API documentation for the ATS Resume Analyzer backend."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+      "description": "Local server"
+    },
+    {
+      "url": "https://resume-analyzer-api.onrender.com",
+      "description": "Production server (example)"
+    }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "summary": "Check API Health",
+        "description": "Returns the health status of the API.",
+        "responses": {
+          "200": {
+            "description": "API is alive",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/analyze": {
+      "post": {
+        "summary": "Analyze Resume against Job Description",
+        "description": "Upload a resume (PDF/DOCX) or provide text, and provide a job description to get an ATS analysis score.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resumeFile": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The resume file (PDF or DOCX)."
+                  },
+                  "resumeText": {
+                    "type": "string",
+                    "description": "The text of the resume (if not uploading a file)."
+                  },
+                  "jobDescription": {
+                    "type": "string",
+                    "description": "The job description text."
+                  }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resumeText": {
+                    "type": "string",
+                    "description": "The text of the resume."
+                  },
+                  "jobDescription": {
+                    "type": "string",
+                    "description": "The job description text."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful analysis",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request (Missing data)"
+          },
+          "500": {
+            "description": "Server Error (AI models busy)"
+          }
+        }
+      }
+    }
+  }
+}
