@@ -24,7 +24,7 @@ Python Framework/Modules; Sklearn, Pytorch, keras, Numpy, Pandas, Opencv, NLTK, 
 
 const jd = `Machine Learning Engineer`;
 
-analyzeWithGemini(resume, jd, 'gemini-1.5-flash').then(data => {
+analyzeWithGemini(resume, jd, 'gemini-3.8-flash').then(data => {
   console.log(JSON.stringify(data.scores, null, 2));
   console.log('Overall Score:', data.overall_score);
 }).catch(console.error);

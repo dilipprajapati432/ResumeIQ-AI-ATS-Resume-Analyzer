@@ -12,9 +12,9 @@ const analyzeResume = async (req, res) => {
     console.log(`📩 Request: Resume(${txt.length}b), JD(${jd.length}b)`);
 
     const models = [
-      process.env.GEMINI_MODEL || 'gemini-1.5-flash',
-      'gemini-1.5-flash-8b',
-      'gemini-2.0-flash'
+      process.env.GEMINI_MODEL || 'gemini-3.8-flash',
+      'gemini-1.5-flash',
+      'gemini-1.5-pro'
     ];
 
     let lastError = null;

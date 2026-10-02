@@ -3,7 +3,7 @@ const Groq = require('groq-sdk');
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-const GROQ_MODEL = 'llama-3.1-8b-instant';
+const GROQ_MODEL = 'qwen/qwen3.8-27b';
 
 module.exports = {
   genAI,
